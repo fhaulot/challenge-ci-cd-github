@@ -1,0 +1,39 @@
+name: CD
+
+on:
+  push:
+    branches:
+      - dev
+      - qa
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Deploy to environment
+        env:
+          BRANCH_NAME: ${{ github.ref_name }}
+        run: |
+          if [ "$BRANCH_NAME" == "dev" ]; then
+            echo "🚀 Deployed to Dev"
+            echo "APP_ENV=Dev" >> $GITHUB_ENV
+          elif [ "$BRANCH_NAME" == "qa" ]; then
+            echo "🚀 Deployed to QA"
+            echo "APP_ENV=QA" >> $GITHUB_ENV
+          elif [ "$BRANCH_NAME" == "main" ]; then
+            echo "🚀 Deployed to Production"
+            echo "APP_ENV=Prod" >> $GITHUB_ENV
+          fi

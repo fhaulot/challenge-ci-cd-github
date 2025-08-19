@@ -74,7 +74,6 @@ As part of the technical test, you must set up a **GitHub Actions pipeline** tha
   - How to trigger CI/CD  
   - Example logs or screenshots  
 
-
 ## 🧮 Evaluation Criteria
 
 | Criteria    | Indicator |
