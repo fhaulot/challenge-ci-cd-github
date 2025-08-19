@@ -49,4 +49,5 @@ jobs:
           fi
 
       - name: Notify deployment success
+        shell: bash
         run: echo "Deployment to $APP_ENV successful!"
