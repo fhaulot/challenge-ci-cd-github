@@ -24,6 +24,7 @@ jobs:
         run: pip install -r requirements.txt -v
 
       - name: Run deployment script
+        shell: bash
         run: |
           if [ "$APP_ENV" == "Dev" ]; then
             echo "Running Dev deployment script..."
