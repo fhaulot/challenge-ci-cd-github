@@ -23,6 +23,17 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt -v
 
+      - name: Set environment variable
+        shell: bash
+        run: |
+          if [ "$GITHUB_REF" == "refs/heads/dev" ]; then
+            echo "APP_ENV=Dev" >> $GITHUB_ENV
+          elif [ "$GITHUB_REF" == "refs/heads/qa" ]; then
+            echo "APP_ENV=QA" >> $GITHUB_ENV
+          elif [ "$GITHUB_REF" == "refs/heads/main" ]; then
+            echo "APP_ENV=Prod" >> $GITHUB_ENV
+          fi
+
       - name: Run deployment script
         shell: bash
         run: |
