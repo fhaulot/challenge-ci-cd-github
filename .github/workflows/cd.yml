@@ -23,17 +23,18 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt -v
 
-      - name: Deploy to environment
-        env:
-          BRANCH_NAME: ${{ github.ref_name }}
+      - name: Run deployment script
         run: |
-          if [ "$BRANCH_NAME" == "dev" ]; then
-            echo "🚀 Deployed to Dev"
-            echo "APP_ENV=Dev" >> $GITHUB_ENV
-          elif [ "$BRANCH_NAME" == "qa" ]; then
-            echo "🚀 Deployed to QA"
-            echo "APP_ENV=QA" >> $GITHUB_ENV
-          elif [ "$BRANCH_NAME" == "main" ]; then
-            echo "🚀 Deployed to Production"
-            echo "APP_ENV=Prod" >> $GITHUB_ENV
+          if [ "$APP_ENV" == "Dev" ]; then
+            echo "Running Dev deployment script..."
+            # Add your Dev deployment commands here
+          elif [ "$APP_ENV" == "QA" ]; then
+            echo "Running QA deployment script..."
+            # Add your QA deployment commands here
+          elif [ "$APP_ENV" == "Prod" ]; then
+            echo "Running Production deployment script..."
+            # Add your Production deployment commands here
           fi
+
+      - name: Notify deployment success
+        run: echo "Deployment to $APP_ENV successful!"
