@@ -1,26 +1,40 @@
 import os
+import pytest
+import sys  # Import the sys module
 import importlib
 
-def run_app_with_env(env_value):
-    os.environ["APP_ENV"] = env_value
-    # recharge le module main.py avec la bonne variable
-    if "main" in globals():
-        importlib.reload(main)
-    else:
-        import main
-    return main
-
 def test_dev_environment(monkeypatch):
+    """
+    Tests the application in the 'Dev' environment.
+    """
+    # Remove the module from the cache to ensure a clean import
+    if "app.main" in sys.modules:
+        del sys.modules["app.main"]
+        
     monkeypatch.setenv("APP_ENV", "Dev")
-    import main
-    assert "Dev" in main.env
+    import app.main
+    assert "Dev" in app.main.env
 
 def test_qa_environment(monkeypatch):
+    """
+    Tests the application in the 'QA' environment.
+    """
+    # Remove the module from the cache to ensure a clean import
+    if "app.main" in sys.modules:
+        del sys.modules["app.main"]
+        
     monkeypatch.setenv("APP_ENV", "QA")
-    import main
-    assert "QA" in main.env
+    import app.main
+    assert "QA" in app.main.env
 
 def test_prod_environment(monkeypatch):
+    """
+    Tests the application in the 'Prod' environment.
+    """
+    # Remove the module from the cache to ensure a clean import
+    if "app.main" in sys.modules:
+        del sys.modules["app.main"]
+        
     monkeypatch.setenv("APP_ENV", "Prod")
-    import main
-    assert "Prod" in main.env
+    import app.main
+    assert "Prod" in app.main.env
