@@ -82,7 +82,7 @@ Jobs:
 
 Here you may see the streamlit UI for the development environments:
 
-![devstreamlit](C:\Users\fhaul\Documents\GitHub\challenge-ci-cd-github\devstreamlit.png)
+![devstreamlit](assets/devstreamlit.png)
 
 Here you may see the qa branch merging from the dev branch : 
 
