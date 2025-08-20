@@ -86,19 +86,19 @@ Here you may see the streamlit UI for the development environments:
 
 Here you may see the qa branch merging from the dev branch : 
 
-![qamerging](C:\Users\fhaul\Documents\GitHub\challenge-ci-cd-github\qamerging.png)
+![qamerging](assets/qamerging.png)
 
 Here you have the github actions with the qa deployement CD response successfull : 
 
-![qadeployement](C:\Users\fhaul\Documents\GitHub\challenge-ci-cd-github\qadeployement.png)
+![qadeployement](assets/qadeployement.png)
 
 The deployement branch also worked for production:
 
-![proddeployment](C:\Users\fhaul\Documents\GitHub\challenge-ci-cd-github\proddeployment.png)!
+![proddeployment](assets/proddeployment.png)
 
 Finally, you may see the CI workflow working after pulling request :
 
-![ciworkflow](C:\Users\fhaul\Documents\GitHub\challenge-ci-cd-github\ciworkflow.png)
+![ciworkflow](assets/workingciandcd.png)
 
 ## 🧪 Running Locally
 
