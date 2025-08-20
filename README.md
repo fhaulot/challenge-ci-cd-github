@@ -94,7 +94,7 @@ Here you have the github actions with the qa deployement CD response successfull
 
 The deployement branch also worked for production:
 
-![proddeployment](assets/proddeployment.png)
+![proddeployment](assets/proddeployement.png)
 
 Finally, you may see the CI workflow working after pulling request :
 
